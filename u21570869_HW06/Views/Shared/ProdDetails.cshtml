@@ -1,0 +1,35 @@
+﻿@model u21570869_HW06.Models.product
+<h4> Product Details </h4>
+<dl class="dl-horizontal">
+    <dt>Name</dt>
+    <dd>@Model.product_name</dd>
+    <dt>Year</dt>
+    <dd>@Model.model_year</dd>
+    <dt>Price</dt>
+    <dd>@Model.list_price</dd>
+    <dt>Brand</dt>
+    <dd>@Model.brand.brand_name</dd>
+    <dt>Category</dt>
+    <dd>@Model.category.category_name</dd>
+</dl>
+<h4> Store Details </h4>
+<table class="table table-striped">
+    <tr>
+        <th> Store </th>
+        <th> Quantity </th>
+    </tr>
+    @foreach (var stock in Model.stocks)
+    {
+        <tr>
+            <td>@stock.store.store_name</td>
+            @if (stock.quantity == 0)
+            {
+                <td style="color: red;"> Out of Stock </td>
+            }
+            else
+            {
+                <td>@stock.quantity</td>
+            }
+        </tr>
+    }
+</table>

@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="container">
+    <canvas id="myChart"></canvas>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+
+    var January = [];
+    var February = [];
+    var March = [];
+    var April = [];
+    var May = [];
+    var June = [];
+    var July = [];
+    var August = [];
+    var September = [];
+    var October = [];
+    var November = [];
+    var December = [];
+
+
+
+    var chart = document.getElementById('myChart').getContext('2d');
+
+    var massPopChart = new Chart(myChart, {
+        type: 'bar',
+        data: {
+            labels: ['Bro', 'Bro'],
+            datasets: [{
+                label: 'Bros',
+                data: [100000, 80000],
+                backgroundColor: [
+                    'rgba(255, 0, 0, 0.6)',
+                    'rgba(255, 255, 0, 0.6)',
+                    'rgba(0, 255, 0, 0.6)',
+                    'rgba(0, 0, 255, 0.6)',
+                    'rgba(128, 0, 0, 0.6)',
+                    'rgba(128, 0, 0, 0.6)',
+                    'rgba(0, 128, 128, 0.6)'
+                ],
+                borderWidth: 1,
+                borderColor: '#777',
+                hoverBorderWidth: 2,
+                hoverBorderColor: '#000',
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Chart for xxxxxxx',
+                fontSize: '25'
+            }
+        }
+    })
+</script>
