@@ -20,7 +20,7 @@ namespace u21570869_HW06.Views
         // GET: products
         public ActionResult Index(string searchstring, int? i)
         {
-            var products = db.products.Where(x => x.product_name.Contains(searchstring) || searchstring == null).Include(p => p.brand).Include(p => p.category).ToList().ToPagedList(i ?? 1, 5);
+            var products = db.products.Where(x => x.product_name.Contains(searchstring) || searchstring == null).Include(p => p.brand).Include(p => p.category).ToList().ToPagedList(i ?? 1, 10);
             return View(products);
         }
 

@@ -3,40 +3,46 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Mountain Bikes Sold</h2>
 
 <div class="container">
     <canvas id="myChart"></canvas>
 </div>
-
 <script src="~/Scripts/jquery-1.10.2.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 
-    var January = [];
-    var February = [];
-    var March = [];
-    var April = [];
-    var May = [];
-    var June = [];
-    var July = [];
-    var August = [];
-    var September = [];
-    var October = [];
-    var November = [];
-    var December = [];
+    //var January = [];
+    //var February = [];
+    //var March = [];
+    //var April = [];
+    //var May = [];
+    //var June = [];
+    //var July = [];
+    //var August = [];
+    //var September = [];
+    //var October = [];
+    //var November = [];
+    //var December = [];
 
-
+    @*@{int[] months = new int[12];
+            int i = 0; 
+    };
+    @{foreach(var x in Model)
+    {
+        @months[i] = x;
+        i++;
+    }*@
 
     var chart = document.getElementById('myChart').getContext('2d');
-
     var massPopChart = new Chart(myChart, {
         type: 'bar',
         data: {
-            labels: ['Bro', 'Bro'],
+
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             datasets: [{
-                label: 'Bros',
-                data: [100000, 80000],
+                label: 'Number of Mountain bikes sold for the year',
+                data: [163, 152, 200, 211, 139, 127, 122, 148, 160, 125, 118, 90],
                 backgroundColor: [
                     'rgba(255, 0, 0, 0.6)',
                     'rgba(255, 255, 0, 0.6)',
@@ -55,7 +61,7 @@
         options: {
             title: {
                 display: true,
-                text: 'Chart for xxxxxxx',
+                text: 'Number of Mountain bikes sold for the year',
                 fontSize: '25'
             }
         }

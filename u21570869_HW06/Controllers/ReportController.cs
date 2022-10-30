@@ -14,8 +14,22 @@ namespace u21570869_HW06.Controllers
         // GET: Report
         public ActionResult Index()
         {
-            //List<object> iData = new List<object>();
-            return View();
+            int[] months =
+            {
+                db.order_items.Where(z => z.order.order_date.Month == 1 && z.product.category_id == 6).ToList().Sum(z => z.quantity),
+                db.order_items.Where(z => z.order.order_date.Month == 2 && z.product.category_id == 6).ToList().Sum(z => z.quantity),
+                db.order_items.Where(z => z.order.order_date.Month == 3 && z.product.category_id == 6).ToList().Sum(z => z.quantity),
+                db.order_items.Where(z => z.order.order_date.Month == 4 && z.product.category_id == 6).ToList().Sum(z => z.quantity),
+                db.order_items.Where(z => z.order.order_date.Month == 5 && z.product.category_id == 6).ToList().Sum(z => z.quantity),
+                db.order_items.Where(z => z.order.order_date.Month == 6 && z.product.category_id == 6).ToList().Sum(z => z.quantity),
+                db.order_items.Where(z => z.order.order_date.Month == 7 && z.product.category_id == 6).ToList().Sum(z => z.quantity),
+                db.order_items.Where(z => z.order.order_date.Month == 8 && z.product.category_id == 6).ToList().Sum(z => z.quantity),
+                db.order_items.Where(z => z.order.order_date.Month == 9 && z.product.category_id == 6).ToList().Sum(z => z.quantity),
+                db.order_items.Where(z => z.order.order_date.Month == 10 && z.product.category_id == 6).ToList().Sum(z => z.quantity),
+                db.order_items.Where(z => z.order.order_date.Month == 11 && z.product.category_id == 6).ToList().Sum(z => z.quantity),
+                db.order_items.Where(z => z.order.order_date.Month == 12 && z.product.category_id == 6).ToList().Sum(z => z.quantity)
+            };
+            return View(months);
         }
     }
 }
